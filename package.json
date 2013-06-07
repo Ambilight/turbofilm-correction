@@ -1,0 +1,11 @@
+{
+	"name": "turbofil-correction",
+	"version": "0.0.2",
+	"main": "index.js",
+	"devDependencies": {
+		"node-gyp": ">=0.7.1"
+	},
+	"scripts": {
+		"preinstall": "node-gyp rebuild"
+	}
+}
