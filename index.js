@@ -22,10 +22,9 @@ var levenshtein = exports.levenshtein = function (word1, word2) {
 }
 
 var query = exports.query = function (word, addons) {
+	var words = fuzzy.query (word) || [word].concat (new Array (addons.length));
+	if (arguments.length === 1) return words;
 	var addons = Array.prototype.slice.call (arguments, 1);
-	var words = fuzzy.query (word);
-	if (!words) return [word].concat (new Array (addons.length));
-	if (addons.length == 0) return words;
 	var ret = new Array (words.length);
 	for (var i=0; i<words.length; i++) {
 		var result = new Array (addons.length+1);
